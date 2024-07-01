@@ -195,9 +195,9 @@ Now we will divide the tasks to be performed into three categories. Install, con
 
 # tasks file for apache
 
-- include: install.yml
-- include: configure.yml
-- include: service.yml
+- include_tasks: install.yml
+- include_tasks: configure.yml
+- include_tasks: service.yml
 ```
 
 ![image](https://user-images.githubusercontent.com/37858762/236037410-33d0d60b-d2e8-450c-9732-9327535077af.png)
@@ -232,7 +232,7 @@ We will configure apache2.conf file in the remote machine and also, we will rest
     notify:
     - restart apache2 service
     
-  - name: send copy.html file
+  - name: send index.html file
     copy: src=index.html dest=/var/www/html/
 ```
 
@@ -256,7 +256,7 @@ We will configure apache2.conf file in the remote machine
 
 `cp /etc/apache2/apache2.conf <roles_folder>/<role_name>/files`
 
-Create one html file as well. My dummy html file looks like this.
+Create one index.html file as well. My dummy html file looks like this.
 
 ```
 <html>
