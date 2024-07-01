@@ -76,7 +76,10 @@ This playbook consists of two plays with following tasks:
     - name: Execute script on server
       script: test_script.sh
     - name: Install nginx
-      apt: name=nginx state=latest
+      ansible.builtin.apt:
+        name: nginx
+        state: latest
+        update_cache: yes
 ```
 
 ![image](https://user-images.githubusercontent.com/37858762/236037045-83e67b55-851e-4a40-8ea3-99f2b3a137e5.png)
